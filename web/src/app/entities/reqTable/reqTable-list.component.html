@@ -1,0 +1,66 @@
+<div class="ContentSideSections Implementation">
+    <md-card *ngIf="!sub">
+        <md-card-title>Search ReqTable with search criterias</md-card-title>
+        <md-card-content>
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" ngForm #reqTableForm="ngForm">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="reqBy">Req By</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="reqBy" [(ngModel)]="example.reqBy" name="reqBy" #reqBy="ngModel"/>
+                </div>
+            </div>
+<div class="ui-grid-row">
+    <div class="ui-grid-col-2">
+        <label for="parentName">Parent Name</label>
+    </div>
+    <div class="ui-grid-col-6">
+        <user-auto-complete [(ngModel)]="example.parentName" id="parentName" name="parentName"></user-auto-complete>
+    </div>
+</div>
+        </div>
+
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button (click)="search(dt)"><md-icon>search</md-icon>Search</button>
+        </md-card-actions>
+    </md-card>
+
+    <md-card>
+    <md-card-content>
+    <p>The list of results below is server-side paginated...</p>
+
+    <p-dataTable #dt [value]="currentPage.content"
+                 [lazy]="true"
+                 [rows]="10"
+                 [paginator]="currentPage.totalElements > 10"
+                 [totalRecords]="currentPage.totalElements"
+                 (onLazyLoad)="loadPage($event)"
+                 selectionMode="single"
+                 (onRowSelect)="onRowSelect($event)"
+                 [rowsPerPageOptions]="[5,10,20,50,100]"
+                 [responsive]="true">
+        <p-header>{{header}} (count: {{currentPage.totalElements}})</p-header>
+        <p-column field="reqBy" header="Req By" sortable="true">
+        </p-column>
+        <p-column field="iv1" header="Iv1" sortable="true">
+        </p-column>
+        <p-column field="iv2" header="Iv2" sortable="true">
+        </p-column>
+        <p-column field="iv3" header="Iv3" sortable="true">
+        </p-column>
+        <p-column field="status" header="Status" sortable="true">
+        </p-column>
+        <p-column styleClass="col-icon">
+            <ng-template let-reqTable="rowData" pTemplate="body">
+                <button type="button" pButton icon="fa-trash" (click)="showDeleteDialog(reqTable)" style="float:left"></button>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button (click)="addNew()"><md-icon>add</md-icon>Add</button>
+    </md-card-actions>
+    </md-card>
+</div>

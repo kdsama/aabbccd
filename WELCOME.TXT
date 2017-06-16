@@ -1,0 +1,104 @@
+This is a sample 'per project' template.
+
+Templates doc: http://www.jaxio.com/documentation/celerio/templates.html
+
+Here is a simple script:
+
+    ${entity.model.type}: Author
+    ${entity.model.var}: author
+    ${entity.model.getter}: getAuthor
+    ${entity.service.type}: AuthorService
+    ${entity.service.var}: authorService
+    ${entity.service.getter}: getAuthorService
+
+    ${entity.model.type}: Book
+    ${entity.model.var}: book
+    ${entity.model.getter}: getBook
+    ${entity.service.type}: BookService
+    ${entity.service.var}: bookService
+    ${entity.service.getter}: getBookService
+
+    ${entity.model.type}: DisTable
+    ${entity.model.var}: disTable
+    ${entity.model.getter}: getDisTable
+    ${entity.service.type}: DisTableService
+    ${entity.service.var}: disTableService
+    ${entity.service.getter}: getDisTableService
+
+    ${entity.model.type}: ManuTable
+    ${entity.model.var}: manuTable
+    ${entity.model.getter}: getManuTable
+    ${entity.service.type}: ManuTableService
+    ${entity.service.var}: manuTableService
+    ${entity.service.getter}: getManuTableService
+
+    ${entity.model.type}: Passport
+    ${entity.model.var}: passport
+    ${entity.model.getter}: getPassport
+    ${entity.service.type}: PassportService
+    ${entity.service.var}: passportService
+    ${entity.service.getter}: getPassportService
+
+    ${entity.model.type}: Project
+    ${entity.model.var}: project
+    ${entity.model.getter}: getProject
+    ${entity.service.type}: ProjectService
+    ${entity.service.var}: projectService
+    ${entity.service.getter}: getProjectService
+
+    ${entity.model.type}: ReqTable
+    ${entity.model.var}: reqTable
+    ${entity.model.getter}: getReqTable
+    ${entity.service.type}: ReqTableService
+    ${entity.service.var}: reqTableService
+    ${entity.service.getter}: getReqTableService
+
+    ${entity.model.type}: Role
+    ${entity.model.var}: role
+    ${entity.model.getter}: getRole
+    ${entity.service.type}: RoleService
+    ${entity.service.var}: roleService
+    ${entity.service.getter}: getRoleService
+
+    ${entity.model.type}: SupTable
+    ${entity.model.var}: supTable
+    ${entity.model.getter}: getSupTable
+    ${entity.service.type}: SupTableService
+    ${entity.service.var}: supTableService
+    ${entity.service.getter}: getSupTableService
+
+    ${entity.model.type}: UseCase1
+    ${entity.model.var}: useCase1
+    ${entity.model.getter}: getUseCase1
+    ${entity.service.type}: UseCase1Service
+    ${entity.service.var}: useCase1Service
+    ${entity.service.getter}: getUseCase1Service
+
+    ${entity.model.type}: UseCase2
+    ${entity.model.var}: useCase2
+    ${entity.model.getter}: getUseCase2
+    ${entity.service.type}: UseCase2Service
+    ${entity.service.var}: useCase2Service
+    ${entity.service.getter}: getUseCase2Service
+
+    ${entity.model.type}: UseCase3
+    ${entity.model.var}: useCase3
+    ${entity.model.getter}: getUseCase3
+    ${entity.service.type}: UseCase3Service
+    ${entity.service.var}: useCase3Service
+    ${entity.service.getter}: getUseCase3Service
+
+    ${entity.model.type}: User
+    ${entity.model.var}: user
+    ${entity.model.getter}: getUser
+    ${entity.service.type}: UserService
+    ${entity.service.var}: userService
+    ${entity.service.getter}: getUserService
+
+    ${entity.model.type}: UserDetails
+    ${entity.model.var}: userDetails
+    ${entity.model.getter}: getUserDetails
+    ${entity.service.type}: UserDetailsService
+    ${entity.service.var}: userDetailsService
+    ${entity.service.getter}: getUserDetailsService
+

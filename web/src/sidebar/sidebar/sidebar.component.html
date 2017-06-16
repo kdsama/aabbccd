@@ -1,0 +1,5 @@
+<rc-header></rc-header>
+<div class="sidebar" [ngClass]="{'expanded': isSidebarExpanded}" #sidebar>
+    <rc-menu [menuItems]="menuItems" [collapsible]="collapsible" (hoverItem)="onHoverItem($event)"></rc-menu>
+    <div class="sidebar-hover-elem show-hover-elem" [ngStyle]="sidebarHoverBoundaryStyles"></div>
+</div>

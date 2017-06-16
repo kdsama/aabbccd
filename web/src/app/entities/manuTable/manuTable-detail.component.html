@@ -1,0 +1,46 @@
+<div class="ContentSideSections Implementation">
+    <md-card *ngIf="manuTable" ngForm #manuTableForm="ngForm">
+        <md-card-title>ManuTable Details</md-card-title>
+        <md-card-content>
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad">
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="iv1">Iv1 </label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="iv1" type="number" [(ngModel)]="manuTable.iv1"  name="iv1" #iv1="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="iv2">Iv2 </label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="iv2" type="number" [(ngModel)]="manuTable.iv2"  name="iv2" #iv2="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="iv3">Iv3 </label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="iv3" type="number" [(ngModel)]="manuTable.iv3"  name="iv3" #iv3="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="timestamp">Timestamp </label></div>
+                <div class="ui-grid-col-6">
+                    <p-calendar [(ngModel)]="manuTable.timestamp" dateFormat="yy-mm-dd" showTime="true" [ngModelOptions]="{standalone: true}"></p-calendar>
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+         </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!manuTableForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+
+</div>

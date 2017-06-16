@@ -1,0 +1,50 @@
+<div class="ContentSideSections Implementation">
+    <md-card *ngIf="disTable" ngForm #disTableForm="ngForm">
+        <md-card-title>DisTable Details</md-card-title>
+        <md-card-content>
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad">
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="iv1">Iv1 </label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="iv1" type="number" [(ngModel)]="disTable.iv1"  name="iv1" #iv1="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="iv2">Iv2 </label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="iv2" type="number" [(ngModel)]="disTable.iv2"  name="iv2" #iv2="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="iv3">Iv3 </label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="iv3" type="number" [(ngModel)]="disTable.iv3"  name="iv3" #iv3="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="username">Username</label></div>
+                <div class="ui-grid-col-4">
+                    <user-auto-complete [(ngModel)]="disTable.username" id="username" name="username" [disabled]="sub"></user-auto-complete>
+                </div>
+                <div class="ui-grid-col-1" *ngIf="!sub">
+                    <button pButton id="gotoUsername" type="button" (click)="gotoUsername()" *ngIf="disTable.username" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-grid-col-1" *ngIf="!sub">
+                    <button pButton id="clearUsername" type="button" (click)="clearUsername()" *ngIf="disTable.username" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+            </div>
+         </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!disTableForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+
+</div>

@@ -1,0 +1,78 @@
+<div class="ContentSideSections Implementation">
+    <md-card *ngIf="userDetails" ngForm #userDetailsForm="ngForm">
+        <md-card-title>UserDetails Details</md-card-title>
+        <md-card-content>
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="id">Id  *</label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="id" type="number" [(ngModel)]="userDetails.id.id"  name="id" #id="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="username">Username  *</label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="username" [(ngModel)]="userDetails.id.username"  required placeholder="Required"  name="username" #username="ngModel"/>
+                </div>
+                <div class="ui-grid-col-4">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!username.valid && username.dirty && username.errors['required']">
+                        <i class="fa fa-close"></i>
+                        Username is required
+                    </div>
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="name">Name  *</label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="name" [(ngModel)]="userDetails.name"  required placeholder="Required"  name="name" #name="ngModel"/>
+                </div>
+                <div class="ui-grid-col-4">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!name.valid && name.dirty && name.errors['required']">
+                        <i class="fa fa-close"></i>
+                        Name is required
+                    </div>
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="phNumber">Ph Number  *</label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="phNumber" type="number" [(ngModel)]="userDetails.phNumber"  name="phNumber" #phNumber="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="emailId">Email Id  *</label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="emailId" [(ngModel)]="userDetails.emailId"  required placeholder="Required"  name="emailId" #emailId="ngModel"/>
+                </div>
+                <div class="ui-grid-col-4">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!emailId.valid && emailId.dirty && emailId.errors['required']">
+                        <i class="fa fa-close"></i>
+                        Email Id is required
+                    </div>
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="parent">Parent  *</label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="parent" [(ngModel)]="userDetails.parent"  required placeholder="Required"  name="parent" #parent="ngModel"/>
+                </div>
+                <div class="ui-grid-col-4">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!parent.valid && parent.dirty && parent.errors['required']">
+                        <i class="fa fa-close"></i>
+                        Parent is required
+                    </div>
+                </div>
+            </div>
+         </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!userDetailsForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+
+</div>

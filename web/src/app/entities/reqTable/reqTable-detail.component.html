@@ -1,0 +1,70 @@
+<div class="ContentSideSections Implementation">
+    <md-card *ngIf="reqTable" ngForm #reqTableForm="ngForm">
+        <md-card-title>ReqTable Details</md-card-title>
+        <md-card-content>
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad">
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="reqBy">Req By  *</label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="reqBy" [(ngModel)]="reqTable.reqBy"  required placeholder="Required"  name="reqBy" #reqBy="ngModel"/>
+                </div>
+                <div class="ui-grid-col-4">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!reqBy.valid && reqBy.dirty && reqBy.errors['required']">
+                        <i class="fa fa-close"></i>
+                        Req By is required
+                    </div>
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="iv1">Iv1 </label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="iv1" type="number" [(ngModel)]="reqTable.iv1"  name="iv1" #iv1="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="iv2">Iv2 </label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="iv2" type="number" [(ngModel)]="reqTable.iv2"  name="iv2" #iv2="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="iv3">Iv3 </label></div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="iv3" type="number" [(ngModel)]="reqTable.iv3"  name="iv3" #iv3="ngModel" />
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="status">Status  *</label></div>
+                <div class="ui-grid-col-6">
+                    <p-triStateCheckbox [(ngModel)]="reqTable.status" name="status"></p-triStateCheckbox>{{reqTable.status}}
+                </div>
+                <div class="ui-grid-col-4">
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-2"><label for="parentName">Parent Name</label></div>
+                <div class="ui-grid-col-4">
+                    <user-auto-complete [(ngModel)]="reqTable.parentName" id="parentName" name="parentName" [disabled]="sub"></user-auto-complete>
+                </div>
+                <div class="ui-grid-col-1" *ngIf="!sub">
+                    <button pButton id="gotoParentName" type="button" (click)="gotoParentName()" *ngIf="reqTable.parentName" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-grid-col-1" *ngIf="!sub">
+                    <button pButton id="clearParentName" type="button" (click)="clearParentName()" *ngIf="reqTable.parentName" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+            </div>
+         </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!reqTableForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+
+</div>

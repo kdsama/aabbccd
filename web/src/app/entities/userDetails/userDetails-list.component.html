@@ -1,0 +1,90 @@
+<div class="ContentSideSections Implementation">
+    <md-card *ngIf="!sub">
+        <md-card-title>Search UserDetails with search criterias</md-card-title>
+        <md-card-content>
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" ngForm #userDetailsForm="ngForm">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="username">Username</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="username" [(ngModel)]="example.username" name="username" #username="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="name">Name</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="name" [(ngModel)]="example.name" name="name" #name="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="emailId">Email Id</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="emailId" [(ngModel)]="example.emailId" name="emailId" #emailId="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="parent">Parent</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="parent" [(ngModel)]="example.parent" name="parent" #parent="ngModel"/>
+                </div>
+            </div>
+        </div>
+
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button (click)="search(dt)"><md-icon>search</md-icon>Search</button>
+        </md-card-actions>
+    </md-card>
+
+    <md-card>
+    <md-card-content>
+    <p>The list of results below is server-side paginated...</p>
+
+    <p-dataTable #dt [value]="currentPage.content"
+                 [lazy]="true"
+                 [rows]="10"
+                 [paginator]="currentPage.totalElements > 10"
+                 [totalRecords]="currentPage.totalElements"
+                 (onLazyLoad)="loadPage($event)"
+                 selectionMode="single"
+                 (onRowSelect)="onRowSelect($event)"
+                 [rowsPerPageOptions]="[5,10,20,50,100]"
+                 [responsive]="true">
+        <p-header>{{header}} (count: {{currentPage.totalElements}})</p-header>
+        <p-column field="id" header="Id" sortable="true">
+            <ng-template let-userDetails="rowData" pTemplate="body">
+                {{ userDetails.id.id }}
+            </ng-template>
+        </p-column>
+        <p-column field="username" header="Username" sortable="true">
+            <ng-template let-userDetails="rowData" pTemplate="body">
+                {{ userDetails.id.username }}
+            </ng-template>
+        </p-column>
+        <p-column field="name" header="Name" sortable="true">
+        </p-column>
+        <p-column field="phNumber" header="Ph Number" sortable="true">
+        </p-column>
+        <p-column field="emailId" header="Email Id" sortable="true">
+        </p-column>
+        <p-column field="parent" header="Parent" sortable="true">
+        </p-column>
+        <p-column styleClass="col-icon">
+            <ng-template let-userDetails="rowData" pTemplate="body">
+                <button type="button" pButton icon="fa-trash" (click)="showDeleteDialog(userDetails)" style="float:left"></button>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button (click)="addNew()"><md-icon>add</md-icon>Add</button>
+    </md-card-actions>
+    </md-card>
+</div>

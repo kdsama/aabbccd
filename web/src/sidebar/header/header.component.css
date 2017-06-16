@@ -1,0 +1,26 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: #282828;
+}
+
+.container-fluid {
+    color: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.fa.fa-bars {
+    padding-left: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.fa.fa-bars:hover {
+    color: #00abff;
+}
