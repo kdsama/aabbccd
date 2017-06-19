@@ -31,7 +31,7 @@
     <md-card-content>
     <p>The list of results below is server-side paginated...</p>
 
-    <p-dataTable #dt [value]="currentPage.content"
+    <!--<p-dataTable #dt [value]="currentPage.content"
                  [lazy]="true"
                  [rows]="10"
                  [paginator]="currentPage.totalElements > 10"
@@ -52,12 +52,52 @@
         </p-column>
         <p-column field="status" header="Status" sortable="true">
         </p-column>
+        
         <p-column styleClass="col-icon">
             <ng-template let-reqTable="rowData" pTemplate="body">
                 <button type="button" pButton icon="fa-trash" (click)="showDeleteDialog(reqTable)" style="float:left"></button>
             </ng-template>
         </p-column>
-    </p-dataTable>
+    </p-dataTable>-->
+    <table class="table table-striped" [mfData]="currentPage.content" #mf="mfDataTable" [mfRowsOnPage]="5" (mfSelectedEntities)="setSelectedEntities($event)">
+    <thead>
+        <tr>
+            <!--<th>
+                 
+            </th>-->
+            <th style="width: 20%">
+                <mfDefaultSorter by="iv1">IV1</mfDefaultSorter>
+            </th>
+            <th style="width: 20%">
+                <mfDefaultSorter by="iv2">Iv2</mfDefaultSorter>
+            </th>
+            <th style="width: 30%">
+                <mfDefaultSorter by="iv3">Iv3</mfDefaultSorter>
+            </th>
+            <th style="width: 40%">
+                <mfDefaultSorter by="status">Status</mfDefaultSorter>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of mf.data; let ndx = index" (onRowSelect)="onRowSelect($event)">
+            <!--  -->
+            <!--<td>{{item.id}}</td>-->
+            <td>{{item.iv1}}</td>
+            <td>{{item.iv2}}</td>
+            <td>{{item.iv3}}</td>
+            <td *ngIf="item.status">completed</td>
+            <td *ngIf="!item.status">processing</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>
     </md-card-content>
     <md-card-actions>
         <button md-raised-button (click)="addNew()"><md-icon>add</md-icon>Add</button>

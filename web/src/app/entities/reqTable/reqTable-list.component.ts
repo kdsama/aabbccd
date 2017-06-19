@@ -8,7 +8,7 @@
 // This header can be customized in Celerio conf...
 // Template pack-angular:web/src/app/entities/entity-list.component.ts.e.vm
 //
-import { Component, Input, Output, OnChanges, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, OnChanges, EventEmitter, SimpleChanges,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataTable, LazyLoadEvent } from 'primeng/primeng';
 import { PageResponse } from "../../support/paging";
@@ -26,7 +26,7 @@ import { UserLineComponent } from '../user/user-line.component';
 	templateUrl: 'reqTable-list.component.html',
 	selector: 'reqTable-list'
 })
-export class ReqTableListComponent {
+export class ReqTableListComponent implements OnInit {
 
     @Input() header = "ReqTables...";
 
@@ -42,6 +42,7 @@ export class ReqTableListComponent {
 
     // basic search criterias (visible if not in 'sub' mode)
     example : ReqTable = new ReqTable();
+    selectedEntities: any[];
 
     // list is paginated
     currentPage : PageResponse<ReqTable> = new PageResponse<ReqTable>(0,0,[]);
@@ -54,6 +55,9 @@ export class ReqTableListComponent {
         private reqTableService : ReqTableService,
         private messageService : MessageService,
         private confirmDeleteDialog: MdDialog) {
+    }
+    ngOnInit(){
+        this.loadPage({ first: 0, rows: 10, sortField: null, sortOrder: null, filters: null, multiSortMeta: null });
     }
 
     /**
@@ -80,9 +84,12 @@ export class ReqTableListComponent {
     loadPage(event : LazyLoadEvent) {
         this.reqTableService.getPage(this.example, event).
             subscribe(
-                pageResponse => this.currentPage = pageResponse,
+                pageResponse => {console.log(pageResponse),this.currentPage = pageResponse},
                 error => this.messageService.error('Could not get the results', error)
             );
+    }
+    public setSelectedEntities($event: any) {
+        this.selectedEntities = $event;
     }
 
     // X to one: input param is used to filter the list when displayed

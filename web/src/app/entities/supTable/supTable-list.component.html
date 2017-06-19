@@ -15,7 +15,7 @@
     <md-card-content>
     <p>The list of results below is server-side paginated...</p>
 
-    <p-dataTable #dt [value]="currentPage.content"
+    <!--<p-dataTable #dt [value]="currentPage.content"
                  [lazy]="true"
                  [rows]="10"
                  [paginator]="currentPage.totalElements > 10"
@@ -39,7 +39,44 @@
                 <button type="button" pButton icon="fa-trash" (click)="showDeleteDialog(supTable)" style="float:left"></button>
             </ng-template>
         </p-column>
-    </p-dataTable>
+    </p-dataTable>-->
+    <table [mfData]="currentPage.content" #mf="mfDataTable" [mfRowsOnPage]="5" (mfSelectedEntities)="setSelectedEntities($event)">
+    <thead>
+        <tr>
+            <th>
+                 
+            </th>
+            <th style="width: 20%">
+                <mfDefaultSorter by="name">Name</mfDefaultSorter>
+            </th>
+            <th style="width: 50%">
+                <mfDefaultSorter by="email">Email</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+                <mfDefaultSorter by="age">Age</mfDefaultSorter>
+            </th>
+            <th style="width: 20%">
+                <mfDefaultSorter by="city">City</mfDefaultSorter>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of mf.data; let ndx = index">
+              
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.city | uppercase}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>
     </md-card-content>
     <md-card-actions>
         <button md-raised-button (click)="addNew()"><md-icon>add</md-icon>Add</button>

@@ -63,6 +63,8 @@ export class UserDetailComponent implements OnInit, OnDestroy {
             } else {
                 this.userService.getUser(id)
                     .subscribe(user => {
+                        // console.log("hjfsadklhfdsakhfdlakshflkdashf")
+                        // console.log(user)
                             this.user = user;
                             this.sourceRoles = this.sourceRoles.filter(item => this.user.roles.map((e) => e.id).indexOf(item.id) < 0);
                         },

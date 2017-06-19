@@ -116,7 +116,7 @@ public class BookResource {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
 
-        // book.setExtractSize(multipartFile.getSize());
+        book.setExtractSize(multipartFile.getSize());
         book.setExtractContentType(multipartFile.getContentType());
         book.setExtractFileName(multipartFile.getOriginalFilename());
         bookRepository.save(book);

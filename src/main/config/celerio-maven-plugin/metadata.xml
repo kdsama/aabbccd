@@ -142,8 +142,8 @@
       <columns>
         <column name="id" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER">
           <metaAttributes>
-            <metaAttribute name="type" value="int(11)"/>
             <metaAttribute name="extra" value="auto_increment"/>
+            <metaAttribute name="type" value="int(11)"/>
           </metaAttributes>
         </column>
         <column name="iv1" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="10" type="INTEGER">
@@ -218,8 +218,8 @@
       <columns>
         <column name="id" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER">
           <metaAttributes>
-            <metaAttribute name="type" value="int(11)"/>
             <metaAttribute name="extra" value="auto_increment"/>
+            <metaAttribute name="type" value="int(11)"/>
           </metaAttributes>
         </column>
         <column name="passport_number" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR">
@@ -253,8 +253,8 @@
       <columns>
         <column name="id" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER">
           <metaAttributes>
-            <metaAttribute name="type" value="int(11)"/>
             <metaAttribute name="extra" value="auto_increment"/>
+            <metaAttribute name="type" value="int(11)"/>
           </metaAttributes>
         </column>
         <column name="name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR">
@@ -292,8 +292,8 @@
       <columns>
         <column name="id" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER">
           <metaAttributes>
-            <metaAttribute name="extra" value="auto_increment"/>
             <metaAttribute name="type" value="int(11)"/>
+            <metaAttribute name="extra" value="auto_increment"/>
           </metaAttributes>
         </column>
         <column name="req_by" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="45" type="VARCHAR">
@@ -482,8 +482,8 @@
       <columns>
         <column name="id" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER">
           <metaAttributes>
-            <metaAttribute name="extra" value="auto_increment"/>
             <metaAttribute name="type" value="int(11)"/>
+            <metaAttribute name="extra" value="auto_increment"/>
           </metaAttributes>
         </column>
         <column name="login" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" remarks="The login used to login" size="100" type="VARCHAR">
@@ -565,8 +565,8 @@
       <columns>
         <column name="id" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER">
           <metaAttributes>
-            <metaAttribute name="type" value="int(11)"/>
             <metaAttribute name="extra" value="auto_increment"/>
+            <metaAttribute name="type" value="int(11)"/>
           </metaAttributes>
         </column>
         <column name="username" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="45" type="VARCHAR">

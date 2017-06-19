@@ -80,7 +80,7 @@ export class ProjectListComponent {
     loadPage(event : LazyLoadEvent) {
         this.projectService.getPage(this.example, event).
             subscribe(
-                pageResponse => this.currentPage = pageResponse,
+                pageResponse =>{console.log(pageResponse), this.currentPage = pageResponse},
                 error => this.messageService.error('Could not get the results', error)
             );
     }

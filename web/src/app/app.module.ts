@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule  }  from '@angular/router';
 import { MaterialModule } from '@angular/material';
-import { ConfirmDialogModule, FileUploadModule, PanelModule, GrowlModule, MenubarModule, DialogModule, ButtonModule, AutoCompleteModule, DataTableModule, SharedModule, DropdownModule,PickListModule,CheckboxModule,TriStateCheckboxModule, InputTextModule,InputTextareaModule,CalendarModule,PasswordModule,TabViewModule } from 'primeng/primeng';
+import { ConfirmDialogModule, FileUploadModule, PanelModule, GrowlModule, MenubarModule, DialogModule, ButtonModule, AutoCompleteModule, SharedModule, DropdownModule,PickListModule,CheckboxModule,TriStateCheckboxModule, InputTextModule,InputTextareaModule,CalendarModule,PasswordModule,TabViewModule } from 'primeng/primeng';
 import { ConfirmationService } from 'primeng/primeng';
 import { AppComponent }   from './app.component';
 import { HomeComponent }  from './home.component';
@@ -124,6 +124,15 @@ import { UserDetailsDetailComponent } from './entities/userDetails/userDetails-d
 import { UserDetailsLineComponent } from './entities/userDetails/userDetails-line.component';
 import { UserDetailsCompleteComponent } from './entities/userDetails/userDetails-auto-complete.component';
 
+//sidebar
+import {HeaderComponent} from './sidebar/header/header.component';
+import {MenuComponent} from './sidebar/menu/menu.component';
+import {MenuItemComponent} from './sidebar/menu-item/menu-item.component';
+import {SidebarComponent} from './sidebar/sidebar/sidebar.component';
+import {ToggleSidebarService} from './sidebar/broadcasters/ham-press-broadcaster.service';
+
+import {DataTableModule} from "angular2-datatable";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -199,7 +208,12 @@ import { UserDetailsCompleteComponent } from './entities/userDetails/userDetails
     UserDetailsListComponent,
     UserDetailsDetailComponent,
     UserDetailsLineComponent,
-    UserDetailsCompleteComponent
+    UserDetailsCompleteComponent,
+
+    HeaderComponent,
+    MenuComponent,
+    MenuItemComponent,
+    SidebarComponent
     ],
     imports: [
 // angular
@@ -251,6 +265,7 @@ import { UserDetailsCompleteComponent } from './entities/userDetails/userDetails
         UseCase3Service,
         UserService,
         UserDetailsService,
+        ToggleSidebarService,
 
 // our application services
         AuthService,

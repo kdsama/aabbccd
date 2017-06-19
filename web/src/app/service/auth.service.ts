@@ -29,7 +29,8 @@ export class AuthService {
     login(j_username : string, j_password : string) : Observable<boolean> {
         console.log("login for " + j_username);
         let body = 'j_username=' + j_username + '&j_password=' + j_password + '&submit=Login';
-
+        console.log("authentication");
+        //console.log(this.http.post('/api/login', body, this.options))
         return this.http.post('/api/login', body, this.options).
         map(res => res.status == 200).catch(this.handleError);
     }
